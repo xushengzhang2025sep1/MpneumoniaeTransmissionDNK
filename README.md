@@ -1,7 +1,7 @@
 # MpneumoniaeTransmissionDNK
 Data and Code for Improving prediction of future Mycoplasma pneumoniae epidemics using transmission-based models
 
-This readme file provides data, model information and code used for the Letter
+This readme file provides an explanation for data, model information and code used in the Letter
 
 Improving prediction of future Mycoplasma pneumoniae epidemics using transmission-based models
 
