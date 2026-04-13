@@ -237,7 +237,7 @@ Parameters=tsiRparameter(DenMark_tWK)		#use tsiR to estimate model parameters
 dnk <- DenMark_tWK
 dnk <- dnk[order(dnk$year, dnk$week),]
 
-dfcorrect0 <- data.frame(week = c(rep(1+3*0:16, 15),1+3*3), year = c(rep(seq(2011,2025,1), each = ceiling(52/IP)),rep(2026,4)))        
+dfcorrect0 <- data.frame(week = c(rep(1+3*0:16, 15),1+3*0:3), year = c(rep(seq(2011,2025,1), each = ceiling(52/IP)),rep(2026,4)))        
 dfcorrect <- dfcorrect0[1:dim(dfcorrect0)[1],];										#start from Jan 2011
 dffin <- merge(dfcorrect,dnk, by=c("week","year"), all.x=T)
 dffin <- dffin[order(dffin$year, dffin$week),]
