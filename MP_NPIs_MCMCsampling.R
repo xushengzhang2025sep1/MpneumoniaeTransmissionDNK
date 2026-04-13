@@ -202,12 +202,12 @@ dnkts <- dffin$cases;
  ndim<-Npoint+1+1;   	 					#Npoint enpi (NPI effect),epsilon, and eta (dispension of NB likelihood function)
 ##_______________________hyperpareameter for prior distribution of model parameters____________________
 #            enpi              and             epsilon eta--- uniformly distributed [PI_shape,PI_rate]
- PI_shape<-c(rep(0.25,NPITW),rep(0.1,Npoint-NPITW),2.5,1.5);       
- PI_rate <-c(rep(0.75,Npoint),                     4.5,100000);   	
+ PI_shape<-c(rep(0.25,NPITW),rep(0.1,Npoint-NPITW),1.5,1.5);       
+ PI_rate <-c(rep(0.75,Npoint),                     3.5,100000);   	
 
- para_a  <-c(rep(0.00,NPITW),rep(-0.5,Npoint-NPITW),1.0, 1.01);   		#lower boundary 
- para_b  <-c(rep(1.0,Npoint),                      10., 1000000);   	#upper boundary  
- stDev   <-c(rep(0.3,Npoint),                      2.5, 50000); 		#SD for sampling new parameters in the MCMC process (HM algoritham) 
+ para_a  <-c(rep(0.00,NPITW),rep(-1.0,Npoint-NPITW),1.0, 1.01);   		#lower boundary 
+ para_b  <-c(rep(1.0,Npoint),                       4., 1000000);   	#upper boundary  
+ stDev   <-c(rep(0.3,Npoint),                       0.5, 50000); 		#SD for sampling new parameters in the MCMC process (HM algoritham) 
 
 ################################### Variables for storing the epidemic curves #######################################
 ITWSample    <- matrix(0,nrow=TWeek,ncol=Loop);     	# nos of infections of TWeek triweekly  
