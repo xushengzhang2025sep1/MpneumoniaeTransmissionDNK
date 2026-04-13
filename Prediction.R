@@ -163,7 +163,6 @@ mtext(side = 4, line = 2, 'Reporting rate (%)',col="navy",cex = 0.8);
 ###-------------------------------------------------------------------------------------------###
 ############################################# main ##############################################
 ##--------------------------------------------------------------------------------------------###
- #setwd("C:/Users/xu-sheng.zhang/Documents/PCR_OCT_2025/manuscript/PNASLetter/PNAS_code/data_code_repository") 
  IP =3.058824;   							# infectious period of MP=52/17=3.058824 weeks
  TWeek=375;                          			# 22*17+1=375  tri-weeks from 2011 to 2032 with 51 weeks per year approximatedly
  controlWeekStart =14/IP;      			      # from April 2020
@@ -210,8 +209,8 @@ invisible(t.col)
 ##---------------------------------------------------------------------------------##
 
 
-### Denmark national survey data from January 2011 to December 2025: the bith, population and observed data ###
- DenMark_tWK<- read.csv(file=paste("DenmarkMPdetectionsJan2011_Dec2025.csv",sep=""),head=TRUE)  
+### Denmark national survey data from January 2011 to March 2026: the bith, population and observed data ###
+ DenMark_tWK<- read.csv(file=paste("Data-Denmark-an-2011-Mar-2026.csv",sep=""),head=TRUE)  
  pop 	  <- DenMark_tWK$pop[1];				    						  	# total population Data2011
  L_data = dim(DenMark_tWK)[1]
  births0 <- c(DenMark_tWK$births,rep(DenMark_tWK$births[(L_data-2):L_data],100))[1:TWeek];	# total tri-weekly births  births in future are assumed to be the same as 2024-2025
@@ -238,7 +237,7 @@ Parameters=tsiRparameter(DenMark_tWK)		#use tsiR to estimate model parameters
 dnk <- DenMark_tWK
 dnk <- dnk[order(dnk$year, dnk$week),]
 
-dfcorrect0 <- data.frame(week = c(rep(1+3*0:16, 14),1+3*0:16), year = c(rep(seq(2011,2024,1), each = ceiling(52/IP)),rep(2025,4+13)))        
+dfcorrect0 <- data.frame(week = c(rep(1+3*0:16, 15),1+3*3), year = c(rep(seq(2011,2025,1), each = ceiling(52/IP)),rep(2026,4)))        
 dfcorrect <- dfcorrect0[1:dim(dfcorrect0)[1],];										#start from Jan 2011
 dffin <- merge(dfcorrect,dnk, by=c("week","year"), all.x=T)
 dffin <- dffin[order(dffin$year, dffin$week),]
